@@ -38,7 +38,12 @@ steps:
     artifactoryService: 'SolEng Artifactory Main'
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
-
+- task: ArtifactoryXrayScan@1
+  inputs:
+    artifactoryService: 'SolEng Artifactory Main'
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    allowFailBuild: true
 - script: |
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
