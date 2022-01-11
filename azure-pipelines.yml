@@ -12,6 +12,7 @@ pool:
 steps:
 - script: echo Artifactory Nuget Example
   displayName: 'Artifactory Nuget'
+  
 - task: ArtifactoryNuGet@2
   inputs:
     command: 'restore'
