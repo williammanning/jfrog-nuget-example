@@ -34,6 +34,11 @@ steps:
     buildNumber: '$(Build.BuildNumber)'
     includeEnvVars: true
   
+  - task: ArtifactoryPublishBuildInfo@1
+    inputs:
+      artifactoryService: 'SolEng Artifactory Main'
+      buildName: '$(Build.DefinitionName)'
+      buildNumber: '$(Build.BuildNumber)'
 
 - script: |
     echo Add other tasks to build, test, and deploy your project.
