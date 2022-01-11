@@ -12,6 +12,15 @@ pool:
 steps:
 - script: echo Artifactory Nuget Example
   displayName: 'Artifactory Nuget'
+- task: ArtifactoryNuGet@2
+  inputs:
+    command: 'restore'
+    artifactoryService: 'SolEng Artifactory Main'
+    solutionPath: '**/*.sln'
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
   
 
 - script: |
