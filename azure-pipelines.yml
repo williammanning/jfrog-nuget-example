@@ -17,7 +17,18 @@ steps:
   inputs:
     command: 'restore'
     artifactoryService: 'SolEng Artifactory Main'
+    targetResolveRepo: 'azure-nuget'
     solutionPath: '**/*.sln'
+    collectBuildInfo: true
+    buildName: '$(Build.DefinitionName)'
+    buildNumber: '$(Build.BuildNumber)'
+    includeEnvVars: true
+- task: ArtifactoryNuGet@2
+  inputs:
+    command: 'push'
+    artifactoryService: 'SolEng Artifactory Main'
+    targetDeployRepo: 'azure-nuget'
+    pathToNupkg: '*.nupkg'
     collectBuildInfo: true
     buildName: '$(Build.DefinitionName)'
     buildNumber: '$(Build.BuildNumber)'
